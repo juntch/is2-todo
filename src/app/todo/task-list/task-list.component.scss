@@ -1,0 +1,10 @@
+.task-list {
+  .title {
+    margin-bottom: 0.625rem;
+    font-size: 1.25rem; /* 20px/16px */
+  }
+
+  app-task-item + app-task-item {
+    margin: 3.125rem; /* 50px/16px */
+  }
+}

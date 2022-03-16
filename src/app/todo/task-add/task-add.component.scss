@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .todo-title {
+    text-align: center;
+  }
+
+  .todo-text {
+    margin-bottom: 1.34rem; /* 21,44px (.todo-title) / 16px */
+    border-radius: 0.46875rem; /* 7.5px / 16px */
+    padding: 0.625rem; /* 10px / 16px */
+    font-size: 1rem;
+  }
+
+  .btn-container {
+    align-self: center;
+
+    .btn-add {
+      background-color: limegreen;
+      color: #fff;
+      font-size: 1.125rem;
+      padding: 0.5rem 2rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+  }
+}

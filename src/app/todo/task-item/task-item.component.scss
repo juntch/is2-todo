@@ -5,17 +5,18 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   .status {
-    margin: auto 0.625rem;
+    margin: auto 0.625rem; /* 10px / 16px */
     appearance: none;
     border-radius: 10%;
-    border-style: solid;
-    border-width: 0.1rem;
+    border: 0.125rem solid;
+    color: var(--c-secondary);
 
     &:checked::before {
       content: "✓";
       text-align: center;
       font-size: 0.7rem;
       font-weight: 700;
+      color: var(--c-secondary);
     }
 
     &::before {
@@ -25,20 +26,12 @@
       width: 1rem;
       height: 1rem;
     }
-
-    .done {
-      border-color: #a9a9a9;
-    }
   }
 
   .title {
     flex: 1;
+    overflow: hidden;
     text-overflow: ellipsis;
-
-    &.done {
-      text-decoration: line-through;
-      color: #a9a9a9;
-    }
   }
 
   .title,
@@ -51,5 +44,14 @@
     display: inline-block;
     content: "\00d7"; /* displays 'X' */
     font-size: 1.5rem; /* 24px/16px */
+  }
+
+  &.done {
+    text-decoration: line-through;
+    color: var(--c-secondary);
+
+    .deletion {
+      color: var(--c-primary);
+    }
   }
 }

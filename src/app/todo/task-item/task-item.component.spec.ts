@@ -12,7 +12,7 @@ describe('TaskItemComponent', () => {
     });
     fixture = TestBed.createComponent(TaskItemComponent);
     component = fixture.componentInstance;
-    taskItemTitle = fixture.nativeElement.querySelector('.task-item .title');
+    taskItemTitle = fixture.nativeElement.querySelector('.task-item');
   });
 
   it("should display the task's title", () => {

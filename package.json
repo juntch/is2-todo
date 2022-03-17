@@ -1,6 +1,10 @@
 {
   "name": "is2-todo",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jürgen Untch",
+    "email": "j.untch@outlook.de"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

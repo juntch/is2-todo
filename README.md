@@ -1,6 +1,6 @@
 # Is2Todo
 
-A simple todo application developed with the Angular framework. The app is part of as job application task.
+A simple todo application developed with the Angular framework. The app is part of a job application task.
 
 ![Screenshot of the todo app from a mobile device](./app-screenshot--mobile.png?raw=true "Image of Todo App")
 

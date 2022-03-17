@@ -134,9 +134,21 @@
               "devServerTarget": "is2-todo:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "is2-todo"
+  "defaultProject": "is2-todo",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

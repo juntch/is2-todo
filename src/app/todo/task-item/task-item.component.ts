@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TaskEventService } from '../task-event.service';
 import { Task } from 'src/app/core/models/task.model';
 
@@ -7,7 +7,7 @@ import { Task } from 'src/app/core/models/task.model';
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.scss'],
 })
-export class TaskItemComponent {
+export class TaskItemComponent implements OnInit {
   @Input()
   task: Task;
 

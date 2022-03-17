@@ -1,5 +1,21 @@
 # Is2Todo
 
+A simple todo application developed with the Angular framework. The app is part of a job application task.
+
+![Screenshot of the todo app from a mobile device](./app-screenshot--mobile.png?raw=true "Image of Todo App")
+
+## Features
+
+- Create new task in TODO list
+- Mark any task as completed/uncompleted
+- Delete any task from the task list
+
+## Directory Structure
+The app consists of three modules:
+- core (services, pipes, models used by all other modules; imported by root module)
+- todo (a feature module)
+- app (the root module)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
 ## Development server

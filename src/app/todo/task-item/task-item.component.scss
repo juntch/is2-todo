@@ -32,16 +32,24 @@
   }
 
   .title {
-    flex-grow: 1;
-    .done {
+    flex: 1;
+    text-overflow: ellipsis;
+
+    &.done {
       text-decoration: line-through;
       color: #a9a9a9;
     }
   }
 
+  .title,
+  .status,
+  .deletion {
+    cursor: pointer;
+  }
+
   .deletion:after {
     display: inline-block;
     content: "\00d7"; /* displays 'X' */
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 24px/16px */
   }
 }

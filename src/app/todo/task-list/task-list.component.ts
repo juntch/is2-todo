@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task } from 'src/app/core/models/task.model';
 
 @Component({
@@ -6,18 +6,19 @@ import { Task } from 'src/app/core/models/task.model';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.scss'],
 })
-export class TaskListComponent implements OnInit {
-  @Input()
-  taskItems: Task[] = [
-    { id: 1, title: 'Clean room', status: 'PENDING' },
-    { id: 2, title: 'Buy water', status: 'DONE' },
-    { id: 3, title: 'Go fishing', status: 'PENDING' },
-  ];
+export class TaskListComponent {
+  tasks = [];
+  noFurtherTasks = true;
 
   @Input()
-  title: string = 'Not finished tasks';
+  set taskItems(tasks: Task[]) {
+    this.tasks = tasks;
+    this.noFurtherTasks = this.tasks.length === 0;
+  }
 
-  constructor() {}
+  @Input()
+  noFurtherTasksLabel = '';
 
-  ngOnInit(): void {}
+  @Input()
+  title: string = 'Tasklist';
 }

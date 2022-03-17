@@ -1,5 +1,5 @@
 <h1 class="todo-title">TO-DO List</h1>
-<input class="todo-text" type="text" [placeholder]="placeholder" maxlength="75">
+<input class="todo-text" type="text" [placeholder]="placeholder" maxlength="50" #taskTitle>
 <div class="btn-container">
-    <button class="btn-add">Add Task</button>
+    <button class="btn-add" (click)="onAddTask(taskTitle.value)">Add Task</button>
 </div>

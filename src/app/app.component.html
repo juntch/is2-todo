@@ -1,2 +1,5 @@
-<app-task-add></app-task-add>
-<app-task-list></app-task-list>
+<app-task-add (addTask)="addNewTask($event)"></app-task-add>
+<app-task-list [title]="'Not finished tasks'" [taskItems]="pendingTasks$ | async"
+    [noFurtherTasksLabel]="'Hooray! There\'s nothing more to do.'"></app-task-list>
+<app-task-list [title]="'Finished tasks'" [taskItems]="doneTasks$ | async"
+    [noFurtherTasksLabel]="'No tasks completed yet.'"></app-task-list>

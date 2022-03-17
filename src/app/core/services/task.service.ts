@@ -6,9 +6,7 @@ import { Observable, of } from 'rxjs';
  * This service simulates communication to a backend service.
  */
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TaskService {
   private _tasks: Task[] = [
     {

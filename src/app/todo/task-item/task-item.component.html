@@ -1,5 +1,5 @@
 <div class="task-item" [class.done]="task.status === 'DONE'">
     <input type="checkbox" class="status" (change)="updateStatus()" [checked]="checked">
-    <div class="title" (click)="updateStatus()"><span>{{task.title}}</span></div>
+    <div class="title" (click)="updateStatus()">{{task.title}}</div>
     <div class="deletion" (click)="onDeleteTask()"></div>
 </div>

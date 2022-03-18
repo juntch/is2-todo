@@ -8,7 +8,6 @@ import { TaskEventService } from './todo/task-event.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'is2-todo';

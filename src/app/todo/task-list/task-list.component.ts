@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { Task } from 'src/app/core/models/task.model';
 
 @Component({
@@ -7,13 +8,17 @@ import { Task } from 'src/app/core/models/task.model';
   styleUrls: ['./task-list.component.scss'],
 })
 export class TaskListComponent {
-  tasks = [];
+  private tasks = [];
   noFurtherTasks = true;
 
   @Input()
   set taskItems(tasks: Task[]) {
     this.tasks = tasks;
     this.noFurtherTasks = this.tasks.length === 0;
+  }
+
+  get taskItems() {
+    return this.tasks;
   }
 
   @Input()

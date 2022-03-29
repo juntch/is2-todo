@@ -1,33 +1,30 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { TaskListComponent } from './task-list.component';
 
 let component: TaskListComponent;
 let fixture: ComponentFixture<TaskListComponent>;
-let taskListTitle: HTMLElement;
 
 describe('TaskListComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TaskListComponent, TaskItemComponent],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(TaskListComponent);
     component = fixture.componentInstance;
-    taskListTitle = fixture.nativeElement.querySelector('.task-list .title');
   });
 
-  it('should display noFurtherTasksLabel', () => {
-    component.tasks = [];
-    component.noFurtherTasksLabel = 'All done.';
-    fixture.detectChanges();
-    expect(fixture.nativeElement.textContent).toContain('All done.');
+  it('should set taskItems', () => {
+    component.taskItems = [
+      { id: 1, title: 'test1', status: 'DONE' },
+      { id: 2, title: 'test2', status: 'PENDING' },
+    ];
+    expect(component.taskItems.length).toBe(2);
   });
 
-  it('should display the taskList title', () => {
-    component.title = 'Ongoing tasks';
-    fixture.detectChanges();
-    expect(taskListTitle.textContent).toEqual('Ongoing tasks');
+  it('should set noFurtherTasks to true if taskItems contains no tasks', () => {
+    component.taskItems = [];
+    expect(component.noFurtherTasks).toBe(true);
   });
 });

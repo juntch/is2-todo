@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TaskEventService } from '../task-event.service';
 import { TaskItemComponent } from './task-item.component';
 
 let component: TaskItemComponent;
 let fixture: ComponentFixture<TaskItemComponent>;
-let taskItemTitle: HTMLElement;
+let taskEventService: TaskEventService;
 
 describe('TaskItemComponent', () => {
   beforeEach(() => {
@@ -12,26 +14,38 @@ describe('TaskItemComponent', () => {
     });
     fixture = TestBed.createComponent(TaskItemComponent);
     component = fixture.componentInstance;
-    taskItemTitle = fixture.nativeElement.querySelector('.task-item');
+    taskEventService = TestBed.inject(TaskEventService);
   });
 
-  it("should display the task's title", () => {
+  it('should change status from PENDING to DONE', () => {
     component.task = { id: 1, title: 'Task title', status: 'PENDING' };
-    fixture.detectChanges();
-    expect(taskItemTitle.textContent).toEqual('Task title');
+    component.updateStatus();
+    expect(component.task.status).toBe('DONE');
   });
 
-  it("should have a class of 'done' if status is DONE", () => {
+  it('should change status from DONE to PENDING', () => {
     component.task = { id: 1, title: 'Task title', status: 'DONE' };
-    fixture.detectChanges();
-
-    expect(taskItemTitle.classList.contains('done')).toBe(true);
+    component.updateStatus();
+    expect(component.task.status).toBe('PENDING');
   });
 
-  it("should not have a class of 'done' if status is not DONE", () => {
-    component.task = { id: 1, title: 'Task title', status: 'PENDING' };
-    fixture.detectChanges();
+  it('should set the checked property to true if the task status is DONE', () => {
+    component.task = { id: 1, title: 'Task title', status: 'DONE' };
+    component.ngOnInit();
+    expect(component.checked).toBe(true);
+  });
 
-    expect(taskItemTitle.classList.contains('done')).toBe(false);
+  it('should set the checked property to false if the task status is PENDING', () => {
+    component.task = { id: 1, title: 'Task title', status: 'PENDING' };
+    component.ngOnInit();
+    expect(component.checked).toBe(false);
+  });
+
+  it('onDeleteTask should call taskEventService with the task', () => {
+    const taskEventServiceSpy = spyOn(taskEventService, 'newEvent');
+
+    component.onDeleteTask();
+
+    expect(taskEventServiceSpy).toHaveBeenCalledTimes(1);
   });
 });
